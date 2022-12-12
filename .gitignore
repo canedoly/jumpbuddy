@@ -43,3 +43,5 @@ jb/.vs/jb/v17/.suo
 *.log
 *.tlog
 *.pdb
+*.ipch
+*.txt
