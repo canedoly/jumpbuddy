@@ -36,3 +36,10 @@
 *.db
 *.db-wal
 *.opendb
+jb/.vs/jb/v17/.suo
+*.recipe
+*.iobj
+*.ipdb
+*.log
+*.tlog
+*.pdb
