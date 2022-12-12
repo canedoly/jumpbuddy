@@ -15,7 +15,7 @@ DWORD WINAPI mainThread(LPVOID param)
 	{
 		Sleep(500);
 	}
-	
+
 	if (!app::unload())
 	{
 		MBOX("jumpbuddy failed to unload");
@@ -30,10 +30,10 @@ DWORD WINAPI mainThread(LPVOID param)
 
 BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpReserved)
 {
-    if (fdwReason != DLL_PROCESS_ATTACH)
-    {
-        return TRUE;
-    }
+	if (fdwReason != DLL_PROCESS_ATTACH)
+	{
+		return TRUE;
+	}
 
 	auto main_thread{ CreateThread(0, 0, mainThread, hinstDLL, 0, 0) };
 
@@ -43,6 +43,6 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpReserved)
 	}
 
 	CloseHandle(main_thread);
-	
-    return TRUE;
+
+	return TRUE;
 }
