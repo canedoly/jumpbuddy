@@ -23,6 +23,6 @@ namespace settings
 	//removes pain and death sounds
 	inline bool no_pain_sounds{ true };
 
-	//removes the ressuply sound
+	//removes resupply sound
 	inline bool no_resupply_sound{ true };
 }
