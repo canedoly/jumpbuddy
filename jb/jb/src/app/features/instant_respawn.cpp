@@ -9,8 +9,12 @@ MAKE_HOOK(
 	CTFPlayer_Event_Killed, memory::relToAbs(signatures::CTFPlayer_Event_Killed.m_address),
 	void, __fastcall, void *ecx, void *edx, void *info)
 {
-	//dying is gay!
-	//CALL_ORIGINAL(ecx, edx, info);
+	if (settings::instant_respawn)
+	{
+		reinterpret_cast<void(__thiscall *)(void *)>(memory::relToAbs(signatures::CTFPlayer_ForceRegenerateAndRespawn.m_address))(ecx);
 
-	reinterpret_cast<void(__thiscall *)(void *)>(memory::relToAbs(signatures::CTFPlayer_ForceRegenerateAndRespawn.m_address))(ecx);
+		return;
+	}
+
+	CALL_ORIGINAL(ecx, edx, info);
 }

@@ -69,38 +69,3 @@ std::uintptr_t memory::findSignature(const char *module, const char *search)
 
 	return findSignatureInternal(mod + nt->OptionalHeader.BaseOfCode, mod + nt->OptionalHeader.SizeOfCode, search);
 }
-
-std::uintptr_t memory::findInterface(const char *module, const char *search)
-{
-	struct interfaceinit
-	{
-		typedef void *(*interfacefn)();
-		interfacefn ptr{ nullptr };
-		const char *name{ nullptr };
-		interfaceinit *next{ nullptr };
-	};
-
-	auto mod{ GetModuleHandleA(module) };
-
-	if (!mod)
-	{
-		return 0;
-	}
-
-	auto create_interface{ reinterpret_cast<DWORD>(GetProcAddress(mod, "CreateInterface")) };
-	auto short_jmp{ create_interface + 0x5 };
-	auto jmp{ (short_jmp + *reinterpret_cast<DWORD *>(short_jmp)) + 0x4 };
-	auto list{ **reinterpret_cast<interfaceinit ***>(jmp + 0x6) };
-
-	while (list)
-	{
-		if ((strstr(list->name, search) && (strlen(list->name) - strlen(search)) < 5))
-		{
-			return reinterpret_cast<std::uintptr_t>(list->ptr());
-		}
-
-		list = list->next;
-	}
-
-	return 0;
-}
