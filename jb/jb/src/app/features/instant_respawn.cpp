@@ -9,7 +9,7 @@ MAKE_HOOK(
 	CTFPlayer_Event_Killed, memory::relToAbs(signatures::CTFPlayer_Event_Killed.m_address),
 	void, __fastcall, void *ecx, void *edx, void *info)
 {
-	if (settings::instant_respawn)
+	if (settings::instant_respawn && ecx)
 	{
 		reinterpret_cast<void(__thiscall *)(void *)>(memory::relToAbs(signatures::CTFPlayer_ForceRegenerateAndRespawn.m_address))(ecx);
 
