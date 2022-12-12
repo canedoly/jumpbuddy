@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\app\app.cpp" />
+    <ClCompile Include="src\app\utils\memory\memory.cpp" />
+    <ClCompile Include="src\app\libs\minhook\src\hde\hde32.c" />
+    <ClCompile Include="src\app\libs\minhook\src\hde\hde64.c" />
+    <ClCompile Include="src\app\libs\minhook\src\buffer.c" />
+    <ClCompile Include="src\app\libs\minhook\src\hook.c" />
+    <ClCompile Include="src\app\libs\minhook\src\trampoline.c" />
+    <ClCompile Include="src\app\utils\hook_manager\hook_manager.cpp" />
+    <ClCompile Include="src\app\utils\signature_manager\signature_manager.cpp" />
+    <ClCompile Include="src\app\features\no_pain_sounds.cpp" />
+    <ClCompile Include="src\app\features\no_damage_indicators.cpp" />
+    <ClCompile Include="src\app\features\no_damage.cpp" />
+    <ClCompile Include="src\app\features\clear_view.cpp" />
+    <ClCompile Include="src\app\features\instant_respawn.cpp" />
+    <ClCompile Include="src\app\features\instant_capture.cpp" />
+    <ClCompile Include="src\app\features\custom_fov.cpp" />
+    <ClCompile Include="src\app\features\no_resupply_sound.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\app\app.hpp" />
+    <ClInclude Include="src\app\utils\utils.hpp" />
+    <ClInclude Include="src\app\libs\minhook\include\MinHook.h" />
+    <ClInclude Include="src\app\libs\minhook\src\hde\hde32.h" />
+    <ClInclude Include="src\app\libs\minhook\src\hde\hde64.h" />
+    <ClInclude Include="src\app\libs\minhook\src\hde\pstdint.h" />
+    <ClInclude Include="src\app\libs\minhook\src\hde\table32.h" />
+    <ClInclude Include="src\app\libs\minhook\src\hde\table64.h" />
+    <ClInclude Include="src\app\libs\minhook\src\buffer.h" />
+    <ClInclude Include="src\app\libs\minhook\src\trampoline.h" />
+    <ClInclude Include="src\app\utils\hook_manager\hook_manager.hpp" />
+    <ClInclude Include="src\app\utils\signature_manager\signature_manager.hpp" />
+    <ClInclude Include="src\app\utils\hash\hash.hpp" />
+    <ClInclude Include="src\app\features\settings.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\app\utils\memory\memory.hpp" />
+  </ItemGroup>
+</Project>
